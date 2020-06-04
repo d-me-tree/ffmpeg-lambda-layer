@@ -12,6 +12,10 @@ s3_client = boto3.client('s3')
 
 
 def load_image_from_s3(bucket, key):
+    """Loads image from S3 directly into memory as PIL image.
+    
+    Inspired by: https://gist.github.com/ghandic/a48f450f3c011f44d42eea16a0c7014d
+    """
     file_byte_string = s3_client.get_object(Bucket=bucket, Key=key)['Body'].read()
     return Image.open(BytesIO(file_byte_string))
 
