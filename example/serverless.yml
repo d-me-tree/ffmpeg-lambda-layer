@@ -1,0 +1,11 @@
+service: ffmpeg
+
+provider:
+  name: aws
+  runtime: python3.7
+
+functions:
+  ffmpeg:
+    handler: handler.handle
+    layers:
+      - arn:aws:lambda:eu-west-1:#{AWS::AccountId}:layer:ffmpeg-layer:1  # CHANGEME

@@ -1,0 +1,11 @@
+service: ffmpeg-lambda-layers
+
+provider:
+  name: aws
+
+layers:
+  ffmpeg-layer:
+    path: layer
+    description: FFmpeg and Pillow
+    compatibleRuntimes:
+      - python3.7
